@@ -1,0 +1,14 @@
+{
+  "name": "snapshottr",
+  "version": "0.0.0",
+  "description": "snapshottr",
+  "main": "app.js",
+  "author": {
+    "name": "jasonh",
+    "email": ""
+  },
+  "dependencies": {
+    "cheerio": "~0.12.4",
+    "underscore": "~1.5.2"
+  }
+}
