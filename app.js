@@ -1,32 +1,10 @@
 var snapshottr = require("./lib/snapshottr");
 
-console.log('===Snap Shottr===');
-var snap = new snapshottr;
-snap.load('<h2 class="title">Hello world</h2>');
-console.log(snap.view());
-
-console.log('#1 ===add 1 css===');
-snap.appendCss('h1 { font-size: 3em; }');
-console.log(snap.view());
-
-console.log('#2 ===add 2 css===');
-snap.appendCss('h2 { font-size: 3em; }', 'h3 { font-size: 3em; }');
-console.log(snap.view());
-
-
-console.log('#3 ===replace 2 css===');
-snap.replaceCss('h4 { font-size: 3em; }', 'h5 { font-size: 3em; }');
-console.log(snap.view());
-
-
-console.log('#4 ===replace 2 css, remove style tag===');
-snap.replaceCss('<style>h4 { font-size: 3em; }', 'h5 { font-size: 3em; }</style>');
-console.log(snap.view());
-
-console.log('#5 ===sanitize bad tags===');
-snap.load('<script>bad js</script><h1 class="title">Hello world</h2>');
-console.log(snap.view());
-
+console.log('\n=================');
+console.log('= SnapShottr');
+console.log('a simple html snap-shotting \n');
+console.log('to run unit tests with.. ');
+console.log('jasmine-node spec --autotest --watch \n');
 
 require('readline')
     .createInterface(process.stdin, process.stdout)
