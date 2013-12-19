@@ -1,11 +1,11 @@
 {
   "name": "snapshottr",
-  "version": "0.0.0",
-  "description": "snapshottr",
+  "version": "0.0.01",
+  "description": "an html snap-shotting utility",
   "main": "app.js",
   "author": {
-    "name": "jasonh",
-    "email": ""
+    "name": "Jason Hooten",
+    "email": "jason.hooten@gmail.com"
   },
   "dependencies": {
     "cheerio": "~0.12.4",
