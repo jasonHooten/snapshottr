@@ -1,7 +1,7 @@
 var snapshottr = require("./lib/snapshottr");
 
 console.log('===Snap Shottr===');
-var snap = new snapshottr.SnapShottr();
+var snap = new snapshottr;
 snap.load('<h2 class="title">Hello world</h2>');
 console.log(snap.view());
 
