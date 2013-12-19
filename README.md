@@ -1,7 +1,7 @@
 snapshottr
 ==========
 
-an html snap-shotting utility
+a html snap-shotting utility
 
 ### Purpose
 Snapshottr is a simple html capture engine to build windows view so webpages.
