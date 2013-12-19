@@ -1,3 +1,13 @@
+# User-specific files
+*.suo
+*.user
+*.sln.docstates
+
+# ReSharper is a .NET coding add-in
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
 lib-cov
 *.seed
 *.log
@@ -13,3 +23,5 @@ results
 
 npm-debug.log
 node_modules
+
+
