@@ -9,7 +9,7 @@ Snapshottr is a simple html capture engine to build 'window views' of webpages.
 
 ```js
 var snapshottr = require('snapshottr'),
-    var snap = new snapshottr.SnapShottr();
+    snap = new snapshottr.SnapShottr();
 
 snap = snapshottr.load('<h1 class="title">Hello world</h1>');
 snap.appendCss('h1 { font-size: 3em; }');
