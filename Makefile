@@ -1,4 +1,4 @@
 ﻿test:
-	@./node_modules/.bin/jasmine-node
+	@./node_modules/.bin/mocha
 
 .PHONY: test
