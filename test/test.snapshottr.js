@@ -7,12 +7,6 @@ beforeEach(function() {
     snap = new snapShottr;
 });
 
-describe('ping', function() {
-    it('should pong', function() {
-        assert.equal(snap.ping(),"pong");
-    });
-});
-
 describe('load', function() {
     it('should accept an empty html string', function() {
         snap.load('');
@@ -88,6 +82,7 @@ describe('load', function() {
         assert.equal(snap._$('meta').length, 0);
     });
 });
+
 
 
 describe('view', function() {

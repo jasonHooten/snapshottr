@@ -13,7 +13,9 @@
   },
   "dependencies": {
     "cheerio": "~0.12.4",
-    "underscore": "~1.5.2"
+    "underscore": "~1.5.2",
+    "node-zip": "~1.0.1",
+    "filesystem": "~1.0.1"
   },
   "devDependencies": {
     "mocha": "1.16.x"
