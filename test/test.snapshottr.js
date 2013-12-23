@@ -1,5 +1,6 @@
 ﻿var snapShottr = require("./../lib/snapshottr"),
-        assert = require("assert");
+        assert = require("assert"),
+        fs = require('fs');;
 
 var snap;
 
@@ -171,5 +172,23 @@ describe('replaceCss', function() {
     it('should replace old css with new', function() {
         snap.replaceCss('new', 'new2')
         assert.equal(snap.view(),"<style>new\nnew2</style>test");
+    });
+});
+
+describe('export', function() {
+    beforeEach(function() {
+        snap.load('<h1>test</h1>');
+    });
+
+    it('should export to a default locaiton', function() {
+       assert.equal(snap.fileLocation, "./tmp/");
+    });
+
+    it('should export an html file to the tmp folder specified', function() {
+        var fileLoc = "./test/";
+        snap.export("test1", fileLoc);
+        fs.exists(fileLoc, function (exists) {
+            assert.equal(exists, true);
+        });
     });
 });
