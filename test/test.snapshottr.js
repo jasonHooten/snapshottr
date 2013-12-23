@@ -8,6 +8,7 @@ beforeEach(function() {
     snap = new snapShottr;
 });
 
+
 describe('load', function() {
     it('should accept an empty html string', function() {
         snap.load('');
@@ -17,6 +18,16 @@ describe('load', function() {
     it('should accept a well formed html string', function() {
         snap.load('<div>hello world</div>');
         assert.equal(snap._rawHtml, "<div>hello world</div>");
+        assert.equal(snap._$('div').text(), "hello world");
+    });
+    
+    it('should accept single quotes html string', function() {
+        snap.load('<div title=\'test\'>hello world</div>');
+        assert.equal(snap._$('div').text(), "hello world");
+    });
+    
+    it('should accept double quotes html string', function() {
+        snap.load('<div title=\"test\">hello world</div>');
         assert.equal(snap._$('div').text(), "hello world");
     });
     
@@ -110,39 +121,38 @@ describe('appendCss', function() {
     });
 
     it('does nothing if no css is passed in', function() {
-        snap.appendCss()
+        snap.appendCss();
         assert.equal(snap.view(),"test");
     });
 
     it('should create a style tag', function() {
-        snap.appendCss('')
+        snap.appendCss('');
         assert.equal(snap.view(),"<style></style>test");
     });
 
     it('should only ever create 1 style tag', function() {
-        snap.appendCss('')
-        snap.appendCss('')
+        snap.appendCss('');
+        snap.appendCss('');
         assert.equal(snap.view(),"<style></style>test");
     });
 
     it('should append new css strings to the style tag', function() {
-        snap.appendCss('test1')
-        snap.appendCss('test2')
+        snap.appendCss('test1');
+        snap.appendCss('test2');
         assert.equal(snap.view(),"<style>test1\ntest2</style>test");
     });
 
     it('should append multipe css strings in the arguments', function() {
-        snap.appendCss('test1', 'test2')
+        snap.appendCss('test1', 'test2');
         assert.equal(snap.view(),"<style>test1\ntest2</style>test");
     });
 
     it('should clean the css of style tags', function() {
-        snap.appendCss('<style></style>')
+        snap.appendCss('<style></style>');
         assert.notEqual(snap.view(),"<style><style></style></style>test");
         assert.equal(snap.view(),"<style></style>test");
     });
 });
-
 
 
 describe('replaceCss', function() {
@@ -175,12 +185,13 @@ describe('replaceCss', function() {
     });
 });
 
+
 describe('export', function() {
     beforeEach(function() {
         snap.load('<h1>test</h1>');
     });
 
-    it('should export to a default locaiton', function() {
+    it('should export to a default location', function() {
        assert.equal(snap.fileLocation, "./tmp/");
     });
 
@@ -189,6 +200,16 @@ describe('export', function() {
         snap.export("test1", fileLoc);
         fs.exists(fileLoc, function (exists) {
             assert.equal(exists, true);
+        });
+    });
+});
+
+
+describe('import', function() {
+    it('should import an html file from the tmp folder specified', function() {
+        var fileLoc = "./test/";
+        snap.import("importTest", fileLoc, function(data){
+            assert.equal(data, "<div>importTest</div>");
         });
     });
 });
