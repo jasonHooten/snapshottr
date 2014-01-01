@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{4498d792-def3-46cd-abe2-67c7f2056fa7}</ProjectGuid>
     <ProjectHome />
-    <ProjectView>ProjectFiles</ProjectView>
+    <ProjectView>ShowAllFiles</ProjectView>
     <StartupFile>app.js</StartupFile>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -32,11 +32,14 @@
     <Compile Include="lib\sanitize.js" />
     <Compile Include="lib\snapshottr.js" />
     <Compile Include="lib\utils.js" />
+    <Content Include="test\importTest.html" />
+    <Content Include="test\test1.html" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="lib" />
     <Folder Include="lib\api\" />
     <Folder Include="test\" />
+    <Folder Include="tmp\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />
