@@ -9,7 +9,7 @@ beforeEach(function() {
 });
 
 
-describe('load', function() {
+describe('{load}', function() {
     it('should accept an empty html string', function() {
         snap.load('');
         assert.equal(snap._rawHtml,"");
@@ -97,7 +97,7 @@ describe('load', function() {
 
 
 
-describe('view', function() {
+describe('{view}', function() {
     it('should return an empty string if empty', function() {
         snap.load('');
         assert.equal(snap.view(),"");
@@ -115,7 +115,7 @@ describe('view', function() {
 });
 
 
-describe('appendCss', function() {
+describe('{appendCss}', function() {
     beforeEach(function() {
         snap.load('test');
     });
@@ -155,7 +155,7 @@ describe('appendCss', function() {
 });
 
 
-describe('replaceCss', function() {
+describe('{replaceCss}', function() {
     beforeEach(function() {
         snap.load('<style>old</style>test');
     });
@@ -180,13 +180,31 @@ describe('replaceCss', function() {
 
 
     it('should replace old css with new', function() {
-        snap.replaceCss('new', 'new2')
+        snap.replaceCss('new', 'new2');
         assert.equal(snap.view(),"<style>new\nnew2</style>test");
     });
 });
 
 
-describe('export', function() {
+describe('{removeCss}', function() {
+    beforeEach(function() {
+        snap.load('test');
+    });
+
+    it('should do nothing if there is no css', function() {
+        snap.removeCss();
+        assert.equal(snap.view(),"test");
+    });
+
+    it('should remove css if it exsts', function() {
+        snap.appendCss('<style></style>');
+        snap.removeCss();
+        assert.equal(snap.view(),"test");
+    });
+});
+
+
+describe('{export}', function() {
     beforeEach(function() {
         snap.load('<h1>test</h1>');
     });
@@ -205,7 +223,7 @@ describe('export', function() {
 });
 
 
-describe('import', function() {
+describe('{import}', function() {
     it('should import an html file from the tmp folder specified', function() {
         var fileLoc = "./test/";
         snap.import("importTest", fileLoc, function(data){
