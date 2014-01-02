@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{4498d792-def3-46cd-abe2-67c7f2056fa7}</ProjectGuid>
     <ProjectHome />
-    <ProjectView>ShowAllFiles</ProjectView>
+    <ProjectView>ProjectFiles</ProjectView>
     <StartupFile>app.js</StartupFile>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -33,6 +33,7 @@
     <Compile Include="lib\snapshottr.js" />
     <Compile Include="lib\utils.js" />
     <Content Include="test\importTest.html" />
+    <Content Include="test\mocha.opts" />
     <Content Include="test\test1.html" />
   </ItemGroup>
   <ItemGroup>
