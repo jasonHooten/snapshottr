@@ -24,6 +24,7 @@
   <ItemGroup>
     <Compile Include="lib\api\file.js" />
     <Compile Include="lib\api\css.js" />
+    <Compile Include="lib\api\links.js" />
     <Compile Include="test\test.snapshottr.js" />
     <Content Include="Makefile" />
     <Content Include="package.json" />

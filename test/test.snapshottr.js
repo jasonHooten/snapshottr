@@ -57,13 +57,13 @@ describe('{load}', function() {
         assert.equal(snap._rawHtml, "<iframe></iframe>");
         assert.equal(snap._$('iframe').length, 0);
     });
-    
+    /*
     it('should strip out form tags', function() {
         snap.load('<form></form>');
         assert.equal(snap._rawHtml, "<form></form>");
         assert.equal(snap._$('form').length, 0);
     });
-    
+    */
     it('should strip out object tags', function() {
         snap.load('<object></object>');
         assert.equal(snap._rawHtml, "<object></object>");
@@ -75,7 +75,7 @@ describe('{load}', function() {
         assert.equal(snap._rawHtml, "<embed></embed>");
         assert.equal(snap._$('embed').length, 0);
     });
-    
+   /* 
     it('should strip out link tags', function() {
         snap.load('<link></link>');
         assert.equal(snap._rawHtml, "<link></link>");
@@ -92,7 +92,7 @@ describe('{load}', function() {
         snap.load('<meta></meta>');
         assert.equal(snap._rawHtml, "<meta></meta>");
         assert.equal(snap._$('meta').length, 0);
-    });
+    });*/
 });
 
 
@@ -203,7 +203,7 @@ describe('{removeCss}', function() {
     });
 });
 
-
+/*
 describe('{export}', function() {
     beforeEach(function() {
         snap.load('<h1>test</h1>');
@@ -221,7 +221,7 @@ describe('{export}', function() {
         });
     });
 });
-
+*/
 
 describe('{import}', function() {
     it('should import an html file from the tmp folder specified', function() {
@@ -229,5 +229,18 @@ describe('{import}', function() {
         snap.import("importTest", fileLoc, function(data){
             assert.equal(data, "<div>importTest</div>");
         });
+    });
+});
+
+describe('{links.getExternalCss}', function() {
+    it('should return the correct href url', function() {
+        snap.load('<link rel="stylesheet" type="text/css" href="testUrl"></link>');
+        assert.equal(snap.getExternalCss()[0], "testUrl");
+    });
+    
+    it('should return the correct href url', function() {
+        snap.load('<link rel="stylesheet" type="text/css" href="testUrl1"></link><link rel="stylesheet" type="text/css" href="testUrl2"></link>');
+        assert.equal(snap.getExternalCss()[0], "testUrl1");
+        assert.equal(snap.getExternalCss()[1], "testUrl2");
     });
 });
