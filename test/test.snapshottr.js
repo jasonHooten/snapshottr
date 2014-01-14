@@ -31,16 +31,21 @@ describe('{load}', function() {
         assert.equal(snap._$('div').text(), "hello world");
     });
     
+    it('should accept html with a selector', function() {
+        snap.load('<div>not this one</div><div id="test">hello world</div>', "#test");
+        assert.equal(snap._rawHtml, '<div div="test">hello world</div>');
+    });
+
     // make sure it can handle css
     it('should accept html and css', function() {
-        snap.load('<div>hello world</div>', 'first');
+        snap.load('<div>hello world</div>', null, 'first');
         assert.equal(snap._rawHtml, "<div>hello world</div>");
         assert.equal(snap._$('style').text(), "first");
     });
     
 
     it('should accept html and multiple css', function() {
-        snap.load('<div>hello world</div>', 'first', 'second');
+        snap.load('<div>hello world</div>', null, 'first', 'second');
         assert.equal(snap._rawHtml, "<div>hello world</div>");
         assert.equal(snap._$('style').text(), "first,second");
     });
