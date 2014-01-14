@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "a html snap-shotting utility",
   "main": "app.js",
-  "private" : true
+  "private" : true,
   "author": {
     "name": "Jason Hooten",
     "email": "jason.hooten@gmail.com"
