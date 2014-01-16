@@ -1,6 +1,5 @@
-var snapshottr = require("./lib/snapshottr");
 
-exports = module.exports = snapshottr;
+exports = module.exports = require("./lib/snapshottr");
 
 
 /*
