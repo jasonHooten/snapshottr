@@ -31,9 +31,16 @@ describe('{load}', function() {
         assert.equal(snap._$('div').text(), "hello world");
     });
     
-    it('should accept html with a selector', function() {
+    // selector
+    it('should accept html with a class selector', function() {
+        snap.load('<div>not this one</div><div class="test">hello world</div>', ".test");
+        assert.equal(snap._rawHtml, '<div class="test">hello world</div>');
+    });
+
+
+    it('should accept html with a id selector', function() {
         snap.load('<div>not this one</div><div id="test">hello world</div>', "#test");
-        assert.equal(snap._rawHtml, '<div div="test">hello world</div>');
+        assert.equal(snap._rawHtml, '<div id="test">hello world</div>');
     });
 
     // make sure it can handle css
@@ -65,19 +72,16 @@ describe('{load}', function() {
     /*
     it('should strip out form tags', function() {
         snap.load('<form></form>');
-        assert.equal(snap._rawHtml, "<form></form>");
         assert.equal(snap._$('form').length, 0);
     });
     */
     it('should strip out object tags', function() {
         snap.load('<object></object>');
-        assert.equal(snap._rawHtml, "<object></object>");
         assert.equal(snap._$('object').length, 0);
     });
     
     it('should strip out embed tags', function() {
         snap.load('<embed></embed>');
-        assert.equal(snap._rawHtml, "<embed></embed>");
         assert.equal(snap._$('embed').length, 0);
     });
    /* 
