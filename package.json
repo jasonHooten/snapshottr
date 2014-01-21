@@ -15,7 +15,8 @@
   "dependencies": {
     "cheerio": "~0.12.4",
     "underscore": "~1.5.2",
-    "filesystem": "~1.0.1"
+    "filesystem": "~1.0.1",
+    "request": "~2.31.0",
   },
   "devDependencies": {
     "mocha": "1.16.x"
