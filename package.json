@@ -16,9 +16,10 @@
     "cheerio": "~0.12.4",
     "underscore": "~1.5.2",
     "filesystem": "~1.0.1",
-    "request": "~2.31.0",
+    "request": "~2.31.0"
   },
   "devDependencies": {
-    "mocha": "1.16.x"
+    "mocha": "1.16.x",
+    "chai": "~1.8.1"
   }
 }
